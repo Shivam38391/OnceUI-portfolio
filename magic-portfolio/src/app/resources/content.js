@@ -58,8 +58,7 @@ const home = {
   headline: <>Full stack developer and sometime an artist</>,
   subline: (
     <>
-      I'm Shivam sharma, a Fullstack developer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Shivam sharma, a Fullstack developer , with over 2.8 years of experience.
     </>
   ),
 };
@@ -84,9 +83,10 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+      Full-Stack Developer with over 2 years of experience in building scalable web applications. Proficient in
+ frontend development using React.js and Next.js, with backend development experience through personal projects
+ using Django and Django REST Framework (DRF). Adept at collaborating in dynamic environments and passionate
+ about learning new technologies to enhance application performance and user experience.
       </>
     ),
   },
@@ -101,10 +101,10 @@ const about = {
 
         achievements: [
           <>
-            Developed and maintained responsive web applications using Next.js and React.js.
+             Optimized web applications for maximum speed and scalability, improving performance by 30%.
           </>,
           <>
-            • Optimized web applications for maximum speed and scalability, improving performance by 30%.
+          Integrated applications with third-party software, including QuickBooks, various financial institutions, and accounting platforms like Xero.
           </>,
 
           <>
