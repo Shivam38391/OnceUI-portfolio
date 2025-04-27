@@ -21,7 +21,7 @@ export default function MasonryGrid() {
     >
       {gallery.images.map((image, index) => (
         <SmartImage
-          priority={index < 10}
+          priority={index < 18}
           sizes="(max-width: 560px) 100vw, (max-width: 1024px) 50vw, (max-width: 1440px) 33vw, 25vw"
           key={index}
           radius="m"

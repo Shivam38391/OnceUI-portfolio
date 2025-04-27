@@ -109,6 +109,7 @@ export const Header = () => {
                   />
                 </>
               )}
+{/* 
               {routes["/blog"] && (
                 <>
                   <ToggleButton
@@ -125,7 +126,9 @@ export const Header = () => {
                     selected={pathname.startsWith("/blog")}
                   />
                 </>
-              )}
+              )} */}
+
+
               {routes["/gallery"] && (
                 <>
                   <ToggleButton

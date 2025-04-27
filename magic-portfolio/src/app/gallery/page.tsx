@@ -1,4 +1,4 @@
-import { Flex } from "@/once-ui/components";
+import { Flex, Heading } from "@/once-ui/components";
 import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { baseURL } from "@/app/resources";
 import { gallery, person } from "@/app/resources/content";
@@ -34,7 +34,9 @@ export async function generateMetadata() {
 
 export default function Gallery() {
   return (
-    <Flex fillWidth>
+    
+    <>
+    {/* <Flex fillWidth>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -61,7 +63,16 @@ export default function Gallery() {
           }),
         }}
       />
+
+
+    </Flex> */}
+
+    {/* <Heading>
+      My pencile work
+    </Heading> */}
       <MasonryGrid />
-    </Flex>
+
+      
+</>
   );
 }
