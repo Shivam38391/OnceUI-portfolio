@@ -14,7 +14,7 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://shivamsharma-developers-portfolio.vercel.app/";
+const baseURL: string = "https://shivamsharma-developers-portfolio.vercel.app";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -195,9 +195,9 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  threads: "https://www.threads.com/shivamsharma28391",
+  linkedin: "https://www.linkedin.com/in/shivam-sharma-6499061a9/",
+  discord: "https://discord.com/",
 };
 
 // social sharing configuration for blog posts
