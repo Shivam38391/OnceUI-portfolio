@@ -1,0 +1,166 @@
+---
+title: "Building Social Login Logic in FastAPI"
+publishedAt: "2025-09-30"
+image: "/images/blogs/social-login-fastapi.png"
+summary: "Learn how to implement secure and elegant social login flows in FastAPI using the fastapi-sso library, with support for Google, GitHub, LinkedIn, and more."
+tag: "Engineering"
+---
+
+Social login is no longer a luxury—it’s an expectation. Whether you're building a SaaS dashboard, a personal blog, or a full-fledged automation platform, enabling users to authenticate via trusted providers like Google or GitHub can dramatically improve onboarding and engagement.
+
+In this post, we’ll walk through how to implement social login in FastAPI using [`fastapi-sso`](https://github.com/tomasvotava/fastapi-sso), a lightweight and extensible library that makes OAuth2 integration refreshingly simple.
+
+## Why Social Login?
+
+Social login offers a frictionless authentication experience. Instead of creating new credentials, users can log in with accounts they already trust. Benefits include:
+
+- ✅ Faster onboarding
+- ✅ Verified identity from providers
+- ✅ Easier integration with user profiles (name, email, avatar)
+- ✅ Fewer passwords to manage
+
+## Getting Started
+
+Before we dive into code, make sure you have:
+
+- Python 3.8+
+- FastAPI installed
+- OAuth credentials from your provider (e.g., Google, GitHub)
+- Basic familiarity with FastAPI routing
+
+Install the library:
+
+<CodeBlock className="my-24"
+    compact
+    codes={[
+        {
+            code: 'pip install fastapi-sso',
+            label: 'Terminal',
+            language: 'bash'
+        },
+    ]}
+    copyButton
+/>
+
+Or with poetry:
+
+<CodeBlock className="my-24"
+    compact
+    codes={[
+        {
+            code: 'poetry add fastapi-sso',
+            label: 'Poetry',
+            language: 'bash'
+        },
+    ]}
+    copyButton
+/>
+
+## Setting Up Google Login
+
+Let’s use Google as our example provider. First, create OAuth credentials in the [Google Developer Console](https://console.developers.google.com/):
+
+- Set redirect URI to: `http://localhost:8000/auth/callback`
+- Note your `client_id` and `client_secret`
+
+Now initialize the provider:
+
+<CodeBlock className="my-24"
+    compact
+    codes={[
+        {
+            code: `from fastapi import FastAPI, Request
+from fastapi_sso.sso.google import GoogleSSO
+
+app = FastAPI()
+
+google_sso = GoogleSSO(
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    redirect_uri="http://localhost:8000/auth/callback"
+)`,
+            label: 'main.py',
+            language: 'python'
+        },
+    ]}
+    copyButton
+/>
+
+## Creating Login and Callback Routes
+
+<CodeBlock className="my-24"
+    compact
+    codes={[
+        {
+            code: `from fastapi.responses import RedirectResponse
+
+@app.get("/auth/login")
+async def login():
+    return await google_sso.get_login_redirect()
+
+@app.get("/auth/callback")
+async def callback(request: Request):
+    async with google_sso:
+        user = await google_sso.verify_and_process(request)
+    return {"user": user}`,
+            label: 'main.py',
+            language: 'python'
+        },
+    ]}
+    copyButton
+/>
+
+> 🔒 **Note:** As of version `0.16.0`, you must use `async with` to avoid race conditions when verifying the login flow.
+
+## Supported Providers
+
+`fastapi-sso` supports a wide range of providers out of the box:
+
+- Google
+- GitHub
+- Facebook
+- Microsoft
+- LinkedIn
+- Discord
+- Spotify
+- Notion
+- Twitter (X)
+- And more...
+
+You can also define custom providers using the generic SSO class.
+
+## Testing the Flow
+
+Run your FastAPI app:
+
+<CodeBlock className="my-24"
+    compact
+    codes={[
+        {
+            code: 'uvicorn main:app --reload',
+            label: 'Terminal',
+            language: 'bash'
+        },
+    ]}
+    copyButton
+/>
+
+Visit `http://localhost:8000/auth/login` in your browser. You’ll be redirected to Google, and upon successful login, receive a JSON response with your user info.
+
+## Best Practices
+
+- ✅ Validate returned user data before creating sessions
+- ✅ Store provider identities securely in your database
+- ✅ Use HTTPS in production
+- ✅ Handle edge cases like denied permissions or expired tokens
+
+## Final Thoughts
+
+With `fastapi-sso`, adding social login to your FastAPI app is not only possible—it’s elegant. Whether you're building a user-facing product or an internal automation tool, this library helps you authenticate users securely and efficiently.
+
+If you're planning to persist provider identities, issue your own access tokens, or integrate this into a larger workflow, I’d love to help you scaffold that logic next.
+
+---
+
+Want to see this in action or explore more providers? Check out the [official repo](https://github.com/tomasvotava/fastapi-sso) and [demo site](https://fastapi-sso-example.vercel.app/).
+
