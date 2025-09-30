@@ -32,7 +32,7 @@ Install the library:
 
 <CodeBlock className="my-24"
     compact
-    codeInstances={[
+    codes={[
         {
             code: 'pip install fastapi-sso',
             label: 'Terminal',
@@ -46,7 +46,7 @@ Or with poetry:
 
 <CodeBlock className="my-24"
     compact
-    codeInstances={[
+    codes={[
         {
             code: 'poetry add fastapi-sso',
             label: 'Poetry',
@@ -67,7 +67,7 @@ Now initialize the provider:
 
 <CodeBlock className="my-24"
     compact
-    codeInstances={[
+    codes={[
         {
             code: `from fastapi import FastAPI, Request
 from fastapi_sso.sso.google import GoogleSSO
@@ -90,7 +90,7 @@ google_sso = GoogleSSO(
 
 <CodeBlock className="my-24"
     compact
-    codeInstances={[
+    codes={[
         {
             code: `from fastapi.responses import RedirectResponse
 
@@ -135,7 +135,7 @@ Run your FastAPI app:
 
 <CodeBlock className="my-24"
     compact
-    codeInstances={[
+    codes={[
         {
             code: 'uvicorn main:app --reload',
             label: 'Terminal',
