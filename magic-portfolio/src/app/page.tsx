@@ -15,6 +15,7 @@ import { home, about, person, baseURL, routes } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import Resumedownload from "@/components/Resumedownload";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -75,7 +76,17 @@ export default function Home() {
               {home.subline}
             </Text>
           </RevealFx>
+
+
+          <Resumedownload/>
+
+
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+
+
+
+
+
             <Button
               id="about"
               data-border="rounded"
