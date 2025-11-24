@@ -31,48 +31,50 @@ Create a file named docker-compose.yml in your project root. This configuration 
 compact
 codes={[
 {
-code: `version: '3.8'
+code: `
+version: '3.8'
 
 services:
+  # 1. PostgreSQL Database Service
+  postgres:
+    image: postgres:14-alpine # Using a lightweight stable image
+    container_name: postgres_db
+    restart: always
+    ports:
+      # Maps local port 5432 to container port 5432
+      - "5432:5432"
+    environment:
+      # --- Database Configuration ---
+      POSTGRES_USER: user_name
+      POSTGRES_PASSWORD: my_strong_password
+      POSTGRES_DB: dev_database
 
-1. PostgreSQL Database Service
+    # Optional: Volume for persistent data
+    # This saves your data even if the container is stopped or removed.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-postgres:
-image: postgres:14-alpine
-container_name: postgres_db
-restart: always
-ports:
-# Exposes database port to host
-- "5432:5432"
-environment:
-# --- Database Credentials ---
-POSTGRES_USER: dev_user
-POSTGRES_PASSWORD: secret_password
-POSTGRES_DB: my_app_db
+  # 2. pgAdmin Web Interface Service
+  pgadmin:
+    image: dpage/pgadmin4:latest # Use the latest official pgAdmin image
+    container_name: pgadmin_web
+    restart: always
+    ports:
+      # Maps local port 5050 to container port 80 (pgAdmin's default)
+      - "5050:80"
+    environment:
+      # --- pgAdmin Login Credentials (NOT the DB credentials) ---
+      PGADMIN_DEFAULT_EMAIL: user@example.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin_password
+
+    # Ensure pgAdmin can communicate with the Postgres container
+    depends_on:
+      - postgres
+
+# Define the volume for data persistence
 volumes:
-# Persistence: Saves data to your local machine
-- postgres_data:/var/lib/postgresql/data
+  postgres_data:
 
-2. pgAdmin Web Interface Service
-
-pgadmin:
-image: dpage/pgadmin4:latest
-container_name: pgadmin_web
-restart: always
-ports:
-# Exposes pgAdmin web interface
-- "5050:80"
-environment:
-# --- pgAdmin Login Credentials ---
-PGADMIN_DEFAULT_EMAIL: admin@local.com
-PGADMIN_DEFAULT_PASSWORD: pgadmin_password
-depends_on:
-- postgres
-
-Define the volume for data persistence
-
-volumes:
-postgres_data:
 `,
 label: 'docker-compose.yml',
 language: 'yaml'
@@ -89,7 +91,7 @@ Ports: We use 5432:5432 for the database and 5050:80 for pgAdmin access.
 
 Launch and Access the Services
 
-Step 1: Launch Containers
+## Step 1: Launch Containers
 
 Start the services in detached mode (background):
 
