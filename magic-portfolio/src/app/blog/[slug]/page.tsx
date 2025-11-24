@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { CustomMDX, ScrollToHash } from "@/components";
+import { CustomMDX, ProjectCard, ScrollToHash } from "@/components";
 import {
   Meta,
   Schema,
@@ -123,6 +123,20 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               marginBottom="8"
             />
           )}
+
+
+
+                  {/* <ProjectCard
+                    // priority={index < 2}
+                    key={post.slug}
+                    href={`/work/${post.slug}`}
+                    images={post.metadata.images}
+                    title={post.metadata.title}
+                    description={post.metadata.summary}
+                    content={post.content}
+                    avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+                    link={post.metadata.link || ""}
+                  /> */}
           <Column as="article" maxWidth="s">
             <CustomMDX source={post.content} />
           </Column>
