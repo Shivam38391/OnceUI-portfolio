@@ -1,0 +1,143 @@
+---
+title: "🐳 PostgreSQL & pgAdmin: Quick Setup with Docker Compose"
+publishedAt: "2025-11-24"
+summary: "Learn the fastest and cleanest way to set up a local PostgreSQL database and the pgAdmin web interface using a single Docker Compose file."
+image: "/images/blogs/docker_postgres_pgadmin_diagram.png"
+
+tag: "Docker"
+---
+
+Running database services in **Docker containers** is a modern best practice that offers consistency, isolation, and easy cleanup. We'll use **Docker Compose** to launch both PostgreSQL (the database) and **pgAdmin** (the web management interface) with a single command. 
+
+
+
+
+## Prerequisites
+
+You'll need to have Docker and Docker Compose installed on your machine. You can check your installation by running:
+
+<CodeBlock compact marginBottom="16" codes={[
+{
+code: "docker --version\ndocker compose version",
+language: "bash"
+}
+]} />
+
+## Defining Services in docker-compose.yml
+
+Create a file named docker-compose.yml in your project root. This configuration defines the two services, ensuring they can communicate with each other using their service names (postgres and pgadmin).
+
+<CodeBlock className="my-24"
+compact
+codes={[
+{
+code: `
+version: '3.8'
+
+services:
+  # 1. PostgreSQL Database Service
+  postgres:
+    image: postgres:14-alpine # Using a lightweight stable image
+    container_name: postgres_db
+    restart: always
+    ports:
+      # Maps local port 5432 to container port 5432
+      - "5432:5432"
+    environment:
+      # --- Database Configuration ---
+      POSTGRES_USER: user_name
+      POSTGRES_PASSWORD: my_strong_password
+      POSTGRES_DB: dev_database
+
+    # Optional: Volume for persistent data
+    # This saves your data even if the container is stopped or removed.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. pgAdmin Web Interface Service
+  pgadmin:
+    image: dpage/pgadmin4:latest # Use the latest official pgAdmin image
+    container_name: pgadmin_web
+    restart: always
+    ports:
+      # Maps local port 5050 to container port 80 (pgAdmin's default)
+      - "5050:80"
+    environment:
+      # --- pgAdmin Login Credentials (NOT the DB credentials) ---
+      PGADMIN_DEFAULT_EMAIL: user@example.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin_password
+
+    # Ensure pgAdmin can communicate with the Postgres container
+    depends_on:
+      - postgres
+
+# Define the volume for data persistence
+volumes:
+  postgres_data:
+
+`,
+label: 'docker-compose.yml',
+language: 'yaml'
+},
+]}
+copyButton
+/>
+
+🔑 Key Configuration Notes
+
+Service Name as Host: When connecting pgAdmin to the database, you will use the host name postgres, as this is the internal service name.
+
+Ports: We use 5432:5432 for the database and 5050:80 for pgAdmin access.
+
+Launch and Access the Services
+
+## Step 1: Launch Containers
+
+Start the services in detached mode (background):
+
+<CodeBlock compact marginBottom="16" codes={[
+{
+code: "docker compose up -d",
+language: "bash"
+}
+]} />
+
+## Step 2: Access pgAdmin
+
+Open your web browser and navigate to: http://localhost:5050. Log in using the PGADMIN_DEFAULT_EMAIL (admin@local.com) and PGADMIN_DEFAULT_PASSWORD (pgadmin_password).
+
+## Step 3: Register the PostgreSQL Server
+
+Inside pgAdmin, you need to register the database server using the following connection details:
+
+Host name/address: postgres
+
+Port: 5432
+
+Maintenance database: my_app_db
+
+Username: dev_user
+
+Password: secret_password
+
+You'll be connected and ready to manage your database tables and schemas right from the web interface!
+
+Stopping and Cleaning Up
+
+When finished, you can safely stop the services:
+
+<CodeBlock compact marginBottom="16" codes={[
+{
+code: "docker compose stop",
+language: "bash"
+}
+]} />
+
+To remove containers, network, and the persistent data volume (for a fresh start):
+
+<CodeBlock compact codes={[
+{
+code: "docker compose down --volumes",
+language: "bash"
+}
+]} />
