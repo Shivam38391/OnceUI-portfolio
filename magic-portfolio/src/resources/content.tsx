@@ -26,7 +26,7 @@ const person = {
   email: "shivamsharma38391@gmail.com",
 
 
-  resume: "/Resume/shivamfullstack_dev_sep.pdf", // Link to your resume file
+  resume: "/Resume/shivamfullstack_dev_may.pdf", // Link to your resume file
 
   timezone: "GMT+7", // Expecting the GMT offset, e.g., 'GMT+1' 
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
@@ -91,8 +91,8 @@ const home: Home = {
   },
   subline: (
     <>
-            I'm Shivam sharma, a Fullstack developer , with over 3 years of experience.
-{" "}
+      I'm Shivam sharma, a Fullstack developer , with over 3 years of experience.
+      {" "}
       {/* <Logo
         dark
         icon="/trademarks/wordmark-dark.svg"
@@ -125,10 +125,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-      Full-Stack Developer with over 3 years of experience in building scalable web applications. Proficient in
- frontend development using React.js and Next.js, with backend development experience through personal projects
- using Django and Django REST Framework (DRF). Adept at collaborating in dynamic environments and passionate
- about learning new technologies to enhance application performance and user experience.
+        Full-Stack Developer with over 3 years of experience in building scalable, high-performance web applications.
+        Expert in frontend development using React.js and Next.js, with a robust backend toolkit encompassing Node.js
+        (Express) and Python (Django DRF). Proven track record of architecting end-to-end solutions, integrating secure
+        APIs, and optimizing database performance. A collaborative problem-solver dedicated to leveraging modern tech
+        stacks to deliver seamless, user-centric digital experiencesexperience
       </>
     ),
   },
@@ -136,17 +137,55 @@ const about: About = {
     display: true, // set to false to hide this section
     title: "Work Experience",
     experiences: [
+
       {
-        company: "People central infotech Pvt. Ltd.",
-        timeframe: "2024 - Present",
+        company: "Ecomoney Insurance Broker.",
+        timeframe: "2025 - april 2026",
+        role: "Full stack developer(Node express and React.js)",
+
+        achievements: [
+          <>
+            Successfully integrated and tested Bajaj Allianz Property Insurance APIs within the UAT environment,
+            ensuring 100 Percent data accuracy before production rollou      
+        </>,
+          <>
+            Implemented Care Health insurance APIs to automate and optimize customer policy renewal workflows.
+          </>,
+
+          <>
+            Engineered a WhatsApp Messaging API integration to automate customer communications and alerts.
+          </>,
+
+          <>
+            Architected a lightweight automated reminder system leveraging existing infrastructure, utilizing cron
+            jobs and database polling to manage notifications without the overhead of external queue systems or dedicated
+            workers.
+          </>
+        ],
+
+        images: [
+          // optional: leave the array empty if you don't want to display images
+          {
+            src: "/images/projects/alete.png",
+            alt: "alete",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+
+
+      {
+        company: "People central infotech Pvt. Ltd. (singapore)",
+        timeframe: "2024 - Sep-2025",
         role: "Frontend Developer",
 
         achievements: [
           <>
-             Optimized web applications for maximum speed and scalability, improving performance by 30%.
+            Optimized web applications for maximum speed and scalability, improving performance by 30%.
           </>,
           <>
-          Integrated applications with third-party software, including QuickBooks, various financial institutions, and accounting platforms like Xero.
+            Integrated applications with third-party software, including QuickBooks, various financial institutions, and accounting platforms like Xero.
           </>,
 
           <>
@@ -157,7 +196,7 @@ const about: About = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
+            src: "/images/projects/peoplecentral.png",
             alt: "Once UI Project",
             width: 16,
             height: 9,
@@ -315,7 +354,7 @@ const work: Work = {
 
 
 const gallery = {
-   path: "/gallery",
+  path: "/gallery",
   label: "Gallery",
   title: "My photo gallery",
   description: `A photo collection by ${person.name}`,
