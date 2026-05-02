@@ -91,7 +91,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Shivam sharma, a Fullstack developer , with over 3 years of experience.
+      I'm Shivam sharma, a Fullstack developer , with over 3.5 years of experience.
       {" "}
       {/* <Logo
         dark
@@ -125,7 +125,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Full-Stack Developer with over 3 years of experience in building scalable, high-performance web applications.
+        Full-Stack Developer with over 3.5 years of experience in building scalable, high-performance web applications.
         Expert in frontend development using React.js and Next.js, with a robust backend toolkit encompassing Node.js
         (Express) and Python (Django DRF). Proven track record of architecting end-to-end solutions, integrating secure
         APIs, and optimizing database performance. A collaborative problem-solver dedicated to leveraging modern tech
