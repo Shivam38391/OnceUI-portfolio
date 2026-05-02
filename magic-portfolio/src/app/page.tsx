@@ -77,8 +77,12 @@ export default function Home() {
             </Text>
           </RevealFx>
 
+          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+            <Resumedownload />
 
-          <Resumedownload/>
+
+          
+          </RevealFx>
 
 
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
