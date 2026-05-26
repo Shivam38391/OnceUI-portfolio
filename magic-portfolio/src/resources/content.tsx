@@ -26,7 +26,7 @@ const person = {
   email: "shivamsharma38391@gmail.com",
 
 
-  resume: "/Resume/shivamfullstack_dev_may.pdf", // Link to your resume file
+  resume: "/Resume/Shivam_Sharma_Resumev2.pdf", // Link to your resume file
 
   timezone: "GMT+7", // Expecting the GMT offset, e.g., 'GMT+1' 
   languages: ["English", "Hindi"], // optional: Leave the array empty if you don't want to display languages
