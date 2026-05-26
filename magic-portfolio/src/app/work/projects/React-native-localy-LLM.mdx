@@ -1,0 +1,47 @@
+---
+title: "NeuroFlow: Engineering a High-Performance, Fully Offline AI Chat Application in React Native"
+publishedAt: "2026-05-25"
+summary: "An in-depth look at building an on-device LLM assistant utilizing React Native and the MLC engine, optimizing compilation layers, and leveraging the Vercel AI SDK for secure token streaming."
+images:
+  - "/images/projects/react-native-project/cover6.png"
+
+
+team:
+  - name: "Shivam"
+    role: "Full-Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/"
+---
+
+
+
+## Overview
+
+Modern mobile applications are heavily dependent on cloud infrastructure to deliver artificial intelligence. However, cloud-dependent AI comes with significant tradeoffs: high server latency, steep API running costs, and potential data privacy leakage. 
+
+**NeuroFlow** was built to challenge this paradigm. It is a high-performance, cross-platform mobile assistant that brings Large Language Models directly onto consumer smartphones. Running completely offline, the application executes multi-billion parameter models locally on-device, leveraging native hardware acceleration to provide immediate, private conversational responses without a single external network request.
+
+## Key Features
+
+- **On-Device LLM Execution**: Integrated the Machine Learning Compilation (MLC) runtime to execute quantized Large Language Models natively on mobile graphics processors. By utilizing C++ compilation layers under the hood, the app targets Apple's Metal API and Android's Vulkan/OpenCL architectures to achieve blistering local token generation speeds.
+- **Real-Time Token Streaming**: Leveraged the Vercel AI SDK's streaming interfaces (`streamText`) to establish smooth, fluid UI updates as text is generated word-by-word, creating an intuitive conversational flow mimicking cloud-hosted assistants.
+- **Architectural Security & Prompt Guarding**: Implemented strict data sanitization rules by decoupling raw user inputs from system instructions. By migrating configuration templates entirely out of active message streams and into dedicated native SDK system parameters, the core engine was insulated against malicious prompt injection attacks.
+- **Fine-Tuned Sampling Control**: Built precision model configuration modules managing generation parameters like Temperature, Top-P, and Repetition/Frequency penalties. This keeps smaller, hardware-optimized local models bound tightly to logical boundaries, completely eliminating vocabulary looping bugs and logical hallucinations.
+- **Memory-Bound Context Management**: Engineered a sliding-window context manager that slices chat history and purges redundant token arrays before parsing data packets to the engine. This meticulous boundary control guarantees total application stability, successfully avoiding native Out-Of-Memory (OOM) crashes during prolonged user chat cycles.
+
+## Technologies Used
+
+- **React Native & TypeScript**: For building a type-safe, fluid, and cross-platform mobile layout with deterministic data parsing.
+- **MLC LLM Engine**: The underlying machine learning compilation platform turning uncompressed neural networks into highly-optimized, 4-bit quantized C++ executables.
+- **Vercel AI SDK**: Used for integrating unified model streams, strict `CallSettings` typing, and robust conversational state wrappers.
+- **Expo**: For rapid native app configuration, environment tooling, and seamless, asset-optimized native binary packaging.
+
+## Challenges and Learnings
+
+The single greatest engineering challenge faced during development was balancing the extreme RAM constraints of consumer mobile hardware against the heavy memory footprints of modern LLMs. Initial builds frequently encountered sudden operating system terminations due to memory spikes during prolonged interactions or when the model generated lengthy answers.
+
+The resolution required digging deep into the model's sampling configuration and memory lifecycle. By strictly mapping parameters like `maxOutputTokens`, implementing rigid history slicing array algorithms, and enabling aggressive ProGuard code shrinking along with resource minification via `expo-build-properties`, the runtime memory envelope was slashed drastically. This ensured that the native memory footprints stayed well within safe device thresholds, transforming a heavy, volatile AI runtime into a stable background asset.
+
+## Outcome
+
+NeuroFlow stands as a powerful proof of concept for the future of edge computing and localized AI engineering. The application successfully streams text at near-zero latency entirely offline, achieving an massive reduction in infrastructure costs while maintaining 100% user data privacy. The optimization techniques refined in this project establish a highly scalable architectural foundation for executing complex on-device AI workloads on standard mobile chipsets.
