@@ -16,22 +16,19 @@ Running database services in **Docker containers** is a modern best practice tha
 
 You'll need to have Docker and Docker Compose installed on your machine. You can check your installation by running:
 
-<CodeBlock compact marginBottom="16" codes={[
-{
-code: "docker --version\ndocker compose version",
-language: "bash"
-}
-]} />
+```bash
+
+docker --version\ndocker compose version",
+```
 
 ## Defining Services in docker-compose.yml
 
 Create a file named docker-compose.yml in your project root. This configuration defines the two services, ensuring they can communicate with each other using their service names (postgres and pgadmin).
 
-<CodeBlock className="my-24"
-compact
-codes={[
-{
-code: `
+```yaml
+
+\\\docker-compose.yml
+
 version: '3.8'
 
 services:
@@ -75,13 +72,7 @@ services:
 volumes:
   postgres_data:
 
-`,
-label: 'docker-compose.yml',
-language: 'yaml'
-},
-]}
-copyButton
-/>
+```
 
 🔑 Key Configuration Notes
 
@@ -95,12 +86,9 @@ Launch and Access the Services
 
 Start the services in detached mode (background):
 
-<CodeBlock compact marginBottom="16" codes={[
-{
-code: "docker compose up -d",
-language: "bash"
-}
-]} />
+```bash
+docker compose up -d
+```
 
 ## Step 2: Access pgAdmin
 
@@ -126,18 +114,12 @@ Stopping and Cleaning Up
 
 When finished, you can safely stop the services:
 
-<CodeBlock compact marginBottom="16" codes={[
-{
-code: "docker compose stop",
-language: "bash"
-}
-]} />
+```bash
+docker compose stop
+```
 
 To remove containers, network, and the persistent data volume (for a fresh start):
 
-<CodeBlock compact codes={[
-{
-code: "docker compose down --volumes",
-language: "bash"
-}
-]} />
+```bash
+docker compose down --volumes
+```
