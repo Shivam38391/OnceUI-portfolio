@@ -118,7 +118,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://calendly.com/shivamsharma38391",
   },
   intro: {
     display: true,
