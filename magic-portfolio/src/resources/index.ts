@@ -8,6 +8,8 @@ export {
   blog,
   work,
   gallery,
+
+  neuroflowPrivacyPolicy,
 } from "./content";
 
 export {

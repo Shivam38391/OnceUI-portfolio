@@ -14,7 +14,7 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://shivamsharma-developers-portfolio.vercel.app";
+const baseURL: string = "https://shivam-sharma.mobbius.in/";
 
 const routes: RoutesConfig = {
   "/": true,
@@ -22,6 +22,8 @@ const routes: RoutesConfig = {
   "/work": true,
   "/blog": true,
   "/gallery": true,
+
+  "/neuroflowprivacy": true,
 };
 
 const display: DisplayConfig = {

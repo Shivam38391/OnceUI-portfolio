@@ -433,4 +433,65 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+
+const neuroflowPrivacyPolicy =  {
+
+  path: "/neuroflowprivacy",
+  label: "NeuroFlow Privacy Policy",
+  title: "Privacy Policy for NeuroFlow",
+  description: "Privacy policy for the NeuroFlow application, detailing data collection and usage practices.",
+  effectiveDate: "July 10, 2026",
+  content: (
+    <>
+      <p>
+        NeuroFlow is built as a commercial/open-source application. This service is provided at no cost and is designed to be used completely as-is.
+      </p>
+
+      <section>
+        <h2>1. Data Collection and Usage</h2>
+        <p>
+          Your privacy is our core priority. NeuroFlow executes all Large Language Model (LLM) processing, chat interactions, and text generations locally on your device.
+        </p>
+        <ul>
+          <li>We do not collect, store, or transmit any personal data, chat history, or text inputs.</li>
+          <li>No data is sent to external cloud servers or third-party APIs       .</li>    
+      <li>All conversations remain entirely inside your device's secure local application sandbox.</li>
+        </ul>
+      </section>    
+
+      <section>   
+
+
+        <h2>2. Device Permissions</h2>    
+
+        <p>
+          The application utilizes local device hardware acceleration (such as GPU architectures via Vulkan, Metal, or OpenCL APIs) solely to process local AI models. No data regarding your device hardware metrics or performance is tracked or transmitted outside your device.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Third-Party Links and Services</h2>
+        <p>
+          The application operates completely standalone. It does not integrate third-party analytics frameworks, advertising networks, tracking SDKs, or external monitoring software.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Changes to This Privacy Policy</h2>
+        <p>
+          We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Any updates are effective immediately upon posting to this page.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Contact Us</h2 > 
+        <p>
+          If you have any questions or suggestions regarding this Privacy Policy, please feel free to reach out via email at: <a href="mailto:shivamsharma38391@gmail.com">shivamsharma38391@gmail.com</a>
+        </p>
+      </section>
+    </>
+  ),
+};
+
+
+export { person, social, newsletter, home, about, blog, work, gallery , neuroflowPrivacyPolicy };
