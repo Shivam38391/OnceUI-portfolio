@@ -24,6 +24,8 @@ const routes: RoutesConfig = {
   "/gallery": true,
 
   "/neuroflowprivacy": true,
+
+  "/automation": true,
 };
 
 const display: DisplayConfig = {
