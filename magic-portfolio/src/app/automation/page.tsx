@@ -45,7 +45,13 @@ export const pageData = {
     subheading:
       "Leads go cold within 15 minutes. See how this system responds instantly on WhatsApp.",
     // Replace with your YouTube Embed URL (format: https://www.youtube-nocookie.com/embed/VIDEO_ID)
-    youtubeEmbedUrl: "https://www.youtube.com/watch?v=_G6AtdWil3Y",
+    youtubeEmbedUrl: "https://www.youtube.com/embed/_G6AtdWil3Y?si=SQ8FyhKwrGBp1Bp-",
+
+
+
+
+
+
     pipelineSteps: [
       { step: "01", title: "Lead Form Submitted", desc: "Meta ads, landing page, or Google Sheet" },
       { step: "02", title: "n8n Processing", desc: "Instant parsing & data validation" },
