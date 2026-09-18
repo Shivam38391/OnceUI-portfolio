@@ -291,6 +291,13 @@ const blog: Blog = {
   // All posts will be listed on the /blog route
 };
 
+const automation = {
+  path: "/automation",
+  label: "Automation",
+  title: "Business Automation Solutions",
+  description: `Custom automation solutions by ${person.name}`,
+};
+
 const work: Work = {
   path: "/work",
   label: "Work",
@@ -494,4 +501,4 @@ const neuroflowPrivacyPolicy =  {
 };
 
 
-export { person, social, newsletter, home, about, blog, work, gallery , neuroflowPrivacyPolicy };
+export { person, social, newsletter, home, about, blog, work, gallery , neuroflowPrivacyPolicy , automation };
