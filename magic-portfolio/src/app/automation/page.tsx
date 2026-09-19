@@ -49,7 +49,7 @@ const pageData = {
     whatsappNumber: "919796276986",
     whatsappPrefillMessage:
       "Hi Shivam — I saw your automation page. Here's what my team does manually every day: ",
-    bookingUrl: "https://calendly.com/shivamsharma38391",
+    bookingUrl: "https://calendly.com/shivamsharma38391/new-meeting",
   },
 
   /* ---------- Background tuning (all three sections) ---------- */
