@@ -332,7 +332,7 @@ const pageData = {
       },
       {
         name: "Pilot system",
-        price: "From ₹12,000",
+        price: "From ₹3,000",
         priceNote: "One workflow, end to end",
         summary: "Your most painful process, built properly and put into production.",
         includes: [

@@ -16,6 +16,7 @@ import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import Resumedownload from "@/components/Resumedownload";
+import { AutomationCta } from "@/components/AutomationCta";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -115,6 +116,12 @@ export default function Home() {
           </RevealFx>
         </Column>
       </Column>
+
+
+
+<AutomationCta />
+
+
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>
