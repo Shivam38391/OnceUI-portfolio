@@ -296,6 +296,20 @@ const automation = {
   label: "Automation",
   title: "Business Automation Solutions",
   description: `Custom automation solutions by ${person.name}`,
+  image: "https://youtu.be/_G6AtdWil3Y",
+  featured: {
+    display: true,
+    title: (
+      <Row gap="12" vertical="center">
+        <strong className="ml-4">Automation</strong>{" "}
+        <Line background="brand-alpha-strong" vert height="20" />
+        <Text marginRight="4" onBackground="brand-medium">
+          Featured work
+        </Text>
+      </Row>
+    ),
+    href: "/automation",
+  },
 };
 
 const work: Work = {

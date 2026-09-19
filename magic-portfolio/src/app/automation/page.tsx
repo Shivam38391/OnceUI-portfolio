@@ -12,6 +12,9 @@ import React from "react";
 // If using the core library, import from "@once-ui-system/core"
 import { Text } from "@once-ui-system/core/components/Text";
 import { Background } from "@once-ui-system/core/components/Background";
+import { automation } from "@/resources/content";
+import { baseURL } from "@/resources/once-ui.config";
+import { Meta } from "@once-ui-system/core/modules";
 
 
 
@@ -21,7 +24,17 @@ import { Background } from "@once-ui-system/core/components/Background";
 
 
 
+ async function generateMetadata() {
+  return Meta.generate({
+    title: automation.title,
+    description: automation.description,
+    baseURL: baseURL,
+    path: automation.path,
+    image: automation.image,
+    // featured: automation.featured,
 
+  });
+}
 
 
 
