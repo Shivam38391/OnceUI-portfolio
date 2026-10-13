@@ -25,6 +25,8 @@ const routes: RoutesConfig = {
 
   "/neuroflowprivacy": true,
 
+  "/talknowprivacy": true,
+
   "/automation": true,
 };
 
